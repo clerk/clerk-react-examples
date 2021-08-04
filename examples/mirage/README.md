@@ -2,7 +2,7 @@
 
 ![Preview](./docs/preview.png)
 
-This React project demonstrates how to use [Clerk Components](http://www.clerk.dev?utm_source=github&utm_medium=starters&utm_campaign=mirage) to build a comprehensive, custom sign-up and sign-in experience with minimum effort.
+This React project demonstrates how to use [@clerk/clerk-react](https://docs.clerk.dev/get-started/create-react-app?utm_source=github&utm_medium=starters&utm_campaign=mirage) together with some ClerkJS JavaScript methods to build a wizard sign-up form with two-factor authentication and profile attributes.
 
 [![Open in VS Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/clerkinc/clerk-react-form-examples)
 
