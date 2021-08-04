@@ -14,7 +14,7 @@ This repository holds sample code for different types of authentication form flo
 
 ## Sign up for Clerk
 
-To sign up, go to https://clerk.dev, create your account and start building your user authentication!
+To sign up, go to [https://clerk.dev](https://clerk.dev?utm_source=github&utm_medium=starters&utm_campaign=main), create your account and start building your user authentication!
 
 ## Using the examples
 
