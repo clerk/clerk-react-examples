@@ -1,10 +1,10 @@
 # Clerk Transistor Starter
 
-![Preview](./preview.png)
+![Preview](./docs/preview.png)
 
 This React project demonstrates how to use [Clerk Components](http://www.clerk.dev?utm_source=github&utm_medium=starters&utm_campaign=transistor) to build a comprehensive, custom sign-up and sign-in experience with minimum effort.
 
-[![Open in VS Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/clerkinc/clerk-transistor-starter)
+[![Open in VS Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/clerkinc/clerk-react-form-examples)
 
 ## Get started
 
