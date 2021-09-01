@@ -1,11 +1,12 @@
+import formStyles from "./layout/FormLayout.module.css";
 import styles from "./SignUpForm.module.css";
 import { ReactComponent as UploadIcon } from "../assets/svg/upload.svg";
 import { useClerk, useSignUp, withClerk } from "@clerk/clerk-react";
 import { useRef, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Button } from "./Button";
 import { Input } from "./Input";
-import { SignUpFormLayout } from "./layout/SignUpFormLayout";
+import { FormLayout } from "./layout/FormLayout";
 import { Title } from "./Title";
 import { useHistory } from "react-router-dom";
 
@@ -27,7 +28,6 @@ enum FormSteps {
   LAST_NAME,
   USERNAME,
   PHOTO,
-  SUBMIT,
 }
 
 function SignUpForm() {
@@ -37,7 +37,6 @@ function SignUpForm() {
   const [formStep, setFormStep] = useState(FormSteps.EMAIL);
   const {
     register,
-    handleSubmit,
     getValues,
     formState: { errors },
   } = useForm<SignUpInputs>({ mode: "all" });
@@ -84,16 +83,14 @@ function SignUpForm() {
     await signUpAttempt.prepareEmailAddressVerification();
   };
 
-  const onSubmit: SubmitHandler<SignUpInputs> = async ({
-    firstName,
-    username,
-    lastName,
-  }) => {
+  const completeRegistration = async () => {
+    const { username, firstName, lastName } = getValues();
     const signUpAttempt = await signUp.update({
       username,
       firstName,
       lastName,
     });
+
     if (signUpAttempt.status === "complete") {
       await clerk.setSession(signUpAttempt.createdSessionId);
       const photo = getValues("photo")?.[0];
@@ -105,11 +102,9 @@ function SignUpForm() {
   };
 
   return (
-    <SignUpFormLayout>
-      <form
-        onSubmit={handleSubmit(async (formData) => await onSubmit(formData))}
-      >
-        <div className={styles.signUpFields}>
+    <FormLayout type="sign-up">
+      <form>
+        <div className={formStyles.fields}>
           {formStep === FormSteps.EMAIL && (
             <>
               <Title>What’s your email address?</Title>
@@ -130,7 +125,7 @@ function SignUpForm() {
           {formStep === FormSteps.CODE && (
             <>
               <Title>Enter the confirmation code</Title>
-              <span className={styles.sub}>
+              <span className={formStyles.sub}>
                 A 6-digit code was just sent to <br />
                 {getValues("email")}
               </span>
@@ -230,25 +225,23 @@ function SignUpForm() {
               )}
               <Button
                 disabled={!getValues("photo")}
-                onClick={incrementFormStep}
+                onClick={async () => await completeRegistration()}
+                style={{ marginTop: 24 }}
               >
                 Continue
               </Button>
               <button
                 type="button"
                 className={styles.skipUpload}
-                onClick={incrementFormStep}
+                onClick={async () => await completeRegistration()}
               >
                 Skip
               </button>
             </>
           )}
-          {formStep === FormSteps.SUBMIT && (
-            <Button type="submit">Create your account &nbsp; 🎉</Button>
-          )}
         </div>
       </form>
-    </SignUpFormLayout>
+    </FormLayout>
   );
 }
 

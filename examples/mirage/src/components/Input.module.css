@@ -8,10 +8,17 @@
   font-size: 20px;
   line-height: 24px;
   color: #fff;
+  margin-bottom: 24px;
 }
 
 .input:focus,
 .input:active {
   border: none;
   outline: none;
+}
+
+.helperText {
+  display: block;
+  align-self: flex-start;
+  font-weight: 600;
 }

@@ -1,24 +1,19 @@
 import {
   ClerkProvider,
-  RedirectToUserProfile,
   SignedIn,
   SignedOut,
   SignIn,
   SignUp,
 } from "@clerk/clerk-react";
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import "./App.css";
+import { Home } from "./Home";
 
 function AuthLayout({ children }) {
   return (
     <>
       <SignedIn>
-        <RedirectToUserProfile />
+        <Home />
       </SignedIn>
       <SignedOut>
         <div className="container">
@@ -31,25 +26,29 @@ function AuthLayout({ children }) {
 }
 
 function App() {
+  const history = useHistory();
   return (
-    <ClerkProvider frontendApi={process.env.REACT_APP_CLERK_FRONTEND_API}>
-      <Router>
-        <Switch>
-          <Route exact path="/sign-up">
-            <AuthLayout>
-              <SignUp signInURL="/sign-in" />
-            </AuthLayout>
-          </Route>
-          <Route path="/sign-in">
-            <AuthLayout>
-              <SignIn routing="path" path="/sign-in" signUpURL="/sign-up" />
-            </AuthLayout>
-          </Route>
-          <Route>
-            <Redirect to="/sign-up" />
-          </Route>
-        </Switch>
-      </Router>
+    <ClerkProvider
+      navigate={history.push}
+      frontendApi={process.env.REACT_APP_CLERK_FRONTEND_API}
+    >
+      <Switch>
+        <Route exact path="/sign-up">
+          <AuthLayout>
+            <SignUp signInURL="/sign-in" />
+          </AuthLayout>
+        </Route>
+        <Route path="/sign-in">
+          <AuthLayout>
+            <SignIn routing="path" path="/sign-in" signUpURL="/sign-up" />
+          </AuthLayout>
+        </Route>
+        <Route>
+          <AuthLayout>
+            <SignUp signInURL="/sign-in" />
+          </AuthLayout>
+        </Route>
+      </Switch>
     </ClerkProvider>
   );
 }

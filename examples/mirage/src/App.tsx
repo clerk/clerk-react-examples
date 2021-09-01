@@ -9,6 +9,7 @@ import {
 import "./App.css";
 import { Home } from "./components/Home";
 import { MainLayout } from "./components/layout/MainLayout";
+import { SignInFormWithClerk } from "./components/SignInForm";
 import { SignUp } from "./components/SignUp";
 import { SignUpFormWithClerk } from "./components/SignUpForm";
 
@@ -32,6 +33,11 @@ function App() {
             <Route path="/sign-up-form">
               <SignedOut>
                 <SignUpFormWithClerk />
+              </SignedOut>
+            </Route>
+            <Route path="/sign-in-form">
+              <SignedOut>
+                <SignInFormWithClerk />
               </SignedOut>
             </Route>
           </Switch>

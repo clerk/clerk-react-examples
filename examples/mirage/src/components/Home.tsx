@@ -1,20 +1,28 @@
 import styles from "./Home.module.css";
-import { ReactComponent as LogoIcon } from "../assets/svg/logo.svg";
-import { Card } from "./layout/Card";
-import { useClerk, useUser } from "@clerk/clerk-react";
-import { Title } from "./Title";
-import { Button } from "./Button";
+import { ReactComponent as NakedLogo } from "../assets/svg/naked-logo.svg";
+import { UserButton } from "@clerk/clerk-react";
 
 export function Home() {
-  const user = useUser();
-  const { signOut } = useClerk();
-
   return (
-    <Card className={styles.home}>
-      <LogoIcon height={64} width={280} />
-      <img alt={user.firstName || ""} src={user.profileImageUrl} />
-      <Title>Hey {user.fullName}!</Title>
-      <Button onClick={() => signOut()}>Log out</Button>
-    </Card>
+    <div className={styles.fullWidth}>
+      <header>
+        <div className={styles.logoRow}>
+          <NakedLogo />
+          <UserButton afterSignOutAllUrl="/sign-in-form" />
+        </div>
+        <nav className={styles.nav}>
+          <button className={styles.navButton}>Home</button>
+        </nav>
+      </header>
+      <main className={styles.main}>
+        <span className={styles.heading}>Home</span>
+        <span className={styles.subHeading}>Welcome to your application</span>
+        <div className={styles.grid}>
+          <div className={styles.box}></div>
+          <div className={styles.box}></div>
+          <div className={styles.box}></div>
+        </div>
+      </main>
+    </div>
   );
 }
