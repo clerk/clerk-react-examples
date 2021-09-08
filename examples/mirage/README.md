@@ -8,6 +8,14 @@ This React project demonstrates how to use [@clerk/clerk-react](https://docs.cle
 
 ## Get started
 
+### Clerk Instance Setup
+
+The Mirage example requires a few Clerk instance settings to be set. Go to your instance dashboard page under **Settings** → **User management** and set `usernames` as required and enable `passwordless` authentication strategy.
+
+<img height="300px" src="../../docs/mirage-instance-settings.png" />
+
+### Development Setup
+
 The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 To get started with [Clerk](http://www.clerk.dev?utm_source=github&utm_medium=starters&utm_campaign=mirage) sign up, create your application and follow the [official React guide](https://docs.clerk.dev/get-started/create-react-app).

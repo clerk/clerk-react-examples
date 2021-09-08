@@ -20,6 +20,11 @@ enum FormSteps {
   CODE,
 }
 
+type CustomError = {
+  type: string;
+  message: string;
+};
+
 function SignInForm() {
   const history = useHistory();
   const signIn = useSignIn();
@@ -28,8 +33,13 @@ function SignInForm() {
   const {
     register,
     getValues,
-    formState: { errors },
+    formState: { errors: formValidationErrors },
   } = useForm<SignInInputs>({ mode: "all" });
+
+  const [error, setError] = useState<CustomError | null>(null);
+  const setClerkError = (error: any, type: string) =>
+    // @ts-ignore
+    setError({ type, message: error.longMessage });
 
   const sendClerkOtp = async function () {
     const emailAddress = getValues("email");
@@ -45,8 +55,17 @@ function SignInForm() {
   };
 
   const emailVerification = async function () {
-    await sendClerkOtp();
-    setFormStep((formStep) => formStep + 1);
+    try {
+      setError(null);
+      await sendClerkOtp();
+      setFormStep((formStep) => formStep + 1);
+    } catch (err) {
+      if (err.errors) {
+        setClerkError(err.errors[0], "email");
+      } else {
+        throw err;
+      }
+    }
   };
 
   const verifyOtp = async function () {
@@ -62,12 +81,13 @@ function SignInForm() {
 
   return (
     <FormLayout type="sign-in">
-      <form>
+      <form onKeyPress={preventDefaultSubmission}>
         <div className={formStyles.fields}>
           {formStep === FormSteps.EMAIL && (
             <>
               <Title>Sign in</Title>
               <Input
+                errorText={error?.message}
                 helperText="Email address"
                 {...register("email", {
                   required: true,
@@ -75,8 +95,11 @@ function SignInForm() {
                 })}
               />
               <Button
-                disabled={!getValues("email") || Boolean(errors["email"])}
+                disabled={
+                  !getValues("email") || Boolean(formValidationErrors["email"])
+                }
                 onClick={async () => await emailVerification()}
+                onKeyPress={async () => await emailVerification()}
               >
                 Continue
               </Button>
@@ -95,10 +118,14 @@ function SignInForm() {
                   maxLength: 6,
                   minLength: 6,
                 })}
+                onPaste={async () => await trigger("code")}
               />
               <Button
-                disabled={!getValues("code") || Boolean(errors["code"])}
+                disabled={
+                  !getValues("code") || Boolean(formValidationErrors["code"])
+                }
                 onClick={async () => await verifyOtp()}
+                onKeyPress={async () => await verifyOtp()}
               >
                 Continue
               </Button>
