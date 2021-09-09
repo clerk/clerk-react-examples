@@ -1,6 +1,6 @@
 import formStyles from "./layout/FormLayout.module.css";
 import { useClerk, useSignIn } from "@clerk/clerk-react";
-import { useState } from "react";
+import { useState, KeyboardEvent } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { Button } from "./Button";
@@ -33,8 +33,15 @@ function SignInForm() {
   const {
     register,
     getValues,
+    trigger,
     formState: { errors: formValidationErrors },
   } = useForm<SignInInputs>({ mode: "all" });
+
+  const preventDefaultSubmission = (e: KeyboardEvent<HTMLFormElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  };
 
   const [error, setError] = useState<CustomError | null>(null);
   const setClerkError = (error: any, type: string) =>
