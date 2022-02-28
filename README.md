@@ -3,18 +3,18 @@
 This repository holds sample code for different types of authentication form flows you might need for your application. All built using [Clerk](https://clerk.dev)!
 
 <div style="display: flex;gap:10px">
-    <img height="250" src="./docs/transistor.gif"/>
+    <img height="250" src="./docs/acme.png"/>
     <img height="250" src="./docs/oasis.png"/>
 </div>
 
 ## Live demo of the applications
 
--   Clerk Transistor - https://nextjs.transistor.clerk.app/
+-   Clerk Acme - https://nextjs.acme.clerk.app/
 -   Clerk Oasis - https://nextjs.oasis.clerk.app/
 
 ## Available code examples
 
--   [Clerk Transistor](./examples/transistor): _Sign up screen using the Clerk Components._
+-   [Clerk Acme](./examples/acme): _Sign up screen using the Clerk Components._
 -   [Clerk Oasis](./examples/oasis): _Multi-step authentication form._
 
 ## Sign up for Clerk

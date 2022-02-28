@@ -1,8 +1,8 @@
-# Clerk Transistor Starter
+# Clerk Acme Starter
 
 ![Preview](./docs/preview.png)
 
-This React project demonstrates how to use [Clerk Components](http://www.clerk.dev?utm_source=github&utm_medium=starters&utm_campaign=transistor) to build a comprehensive, custom sign-up and sign-in experience with minimum effort.
+This React project demonstrates how to use [Clerk Components](http://www.clerk.dev?utm_source=github&utm_medium=starters&utm_campaign=acme) to build a comprehensive, custom sign-up and sign-in experience with minimum effort.
 
 [![Open in VS Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/clerkinc/clerk-react-form-examples)
 
@@ -10,7 +10,7 @@ This React project demonstrates how to use [Clerk Components](http://www.clerk.d
 
 The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-To get started with [Clerk](http://www.clerk.dev?utm_source=github&utm_medium=starters&utm_campaign=transistor) sign up, create your application and follow the [official React guide](https://docs.clerk.dev/get-started/create-react-app).
+To get started with [Clerk](http://www.clerk.dev?utm_source=github&utm_medium=starters&utm_campaign=acme) sign up, create your application and follow the [official React guide](https://docs.clerk.dev/get-started/create-react-app).
 
 As soon as you create your clerk application, clone `.env` as `.env.local` and set the **Frontend API key** of your Clerk development instance to the `REACT_APP_CLERK_FRONTEND_API` variable.
 
@@ -18,10 +18,10 @@ As soon as you create your clerk application, clone `.env` as `.env.local` and s
 
 To achieve a slick look for our form with **no code changes**, we configured our Clerk Theme options on our [dashboard](https://dashboard.clerk.dev) under Settings → Theme.
 
-- Font: **PT Sans**
-- Label font weight: **400/Regular**
-- Rounded corners: **off**
-- Shadow: **off**
+-   Font: **PT Sans**
+-   Label font weight: **400/Regular**
+-   Rounded corners: **off**
+-   Shadow: **off**
 
 After you are done your settings are probably gonna be looking like the ones below:
 
