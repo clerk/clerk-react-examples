@@ -1,8 +1,8 @@
-# Clerk Mirage Starter
+# Clerk Oasis Starter
 
 ![Preview](./docs/preview.png)
 
-This React project demonstrates how to use [@clerk/clerk-react](https://docs.clerk.dev/get-started/create-react-app?utm_source=github&utm_medium=starters&utm_campaign=mirage) together with some ClerkJS JavaScript methods to build a wizard sign-up form with two-factor authentication and profile attributes.
+This React project demonstrates how to use [@clerk/clerk-react](https://docs.clerk.dev/get-started/create-react-app?utm_source=github&utm_medium=starters&utm_campaign=oasis) together with some ClerkJS JavaScript methods to build a wizard sign-up form with two-factor authentication and profile attributes.
 
 [![Open in VS Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/clerkinc/clerk-react-form-examples)
 
@@ -10,15 +10,15 @@ This React project demonstrates how to use [@clerk/clerk-react](https://docs.cle
 
 ### Clerk Instance Setup
 
-The Mirage example requires a few Clerk instance settings to be set. Go to your instance dashboard page under **Settings** → **User management** and set `usernames` as required and enable `passwordless` authentication strategy.
+The Oasis example requires a few Clerk instance settings to be set. Go to your instance dashboard page under **Settings** → **User management** and set `usernames` as required and enable `passwordless` authentication strategy.
 
-<img height="300px" src="../../docs/mirage-instance-settings.png" />
+<img height="300px" src="../../docs/oasis-instance-settings.png" />
 
 ### Development Setup
 
 The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-To get started with [Clerk](http://www.clerk.dev?utm_source=github&utm_medium=starters&utm_campaign=mirage) sign up, create your application and follow the [official React guide](https://docs.clerk.dev/get-started/create-react-app).
+To get started with [Clerk](http://www.clerk.dev?utm_source=github&utm_medium=starters&utm_campaign=oasis) sign up, create your application and follow the [official React guide](https://docs.clerk.dev/get-started/create-react-app).
 
 As soon as you create your clerk application, clone `.env` as `.env.local` and set the **Frontend API key** of your Clerk development instance to the `REACT_APP_CLERK_FRONTEND_API` variable.
 

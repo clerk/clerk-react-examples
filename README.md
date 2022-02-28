@@ -4,18 +4,18 @@ This repository holds sample code for different types of authentication form flo
 
 <div style="display: flex;gap:10px">
     <img height="250" src="./docs/transistor.gif"/>
-    <img height="250" src="./docs/mirage.gif"/>
+    <img height="250" src="./docs/oasis.png"/>
 </div>
 
 ## Live demo of the applications
 
-- Clerk Transistor - https://nextjs.transistor.clerk.app/
-- Clerk Mirage - https://nextjs.mirage.clerk.app/
+-   Clerk Transistor - https://nextjs.transistor.clerk.app/
+-   Clerk Oasis - https://nextjs.oasis.clerk.app/
 
 ## Available code examples
 
-- [Clerk Transistor](./examples/transistor): _Sign up screen using the Clerk Components._
-- [Clerk Mirage](./examples/mirage): _Multi-step authentication form._
+-   [Clerk Transistor](./examples/transistor): _Sign up screen using the Clerk Components._
+-   [Clerk Oasis](./examples/oasis): _Multi-step authentication form._
 
 ## Sign up for Clerk
 
