@@ -12,20 +12,7 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
 
 To get started with [Clerk](http://www.clerk.dev?utm_source=github&utm_medium=starters&utm_campaign=acme) sign up, create your application and follow the [official React guide](https://docs.clerk.dev/get-started/create-react-app).
 
-As soon as you create your clerk application, clone `.env` as `.env.local` and set the **Frontend API key** of your Clerk development instance to the `REACT_APP_CLERK_FRONTEND_API` variable.
-
-## Theming
-
-To achieve a slick look for our form with **no code changes**, we configured our Clerk Theme options on our [dashboard](https://dashboard.clerk.dev) under Settings → Theme.
-
--   Font: **PT Sans**
--   Label font weight: **400/Regular**
--   Rounded corners: **off**
--   Shadow: **off**
-
-After you are done your settings are probably gonna be looking like the ones below:
-
-<img style="width:400px" src="./docs/theme.png" />
+As soon as you create your Clerk application, clone `.env` as `.env.local` and set the **Frontend API key** of your Clerk development instance to the `REACT_APP_CLERK_FRONTEND_API` variable.
 
 ## Available Scripts
 

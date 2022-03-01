@@ -18,6 +18,10 @@
  * Clerk Components CSS customization
  */
 
+.cl-sign-up {
+  height: 100%;
+}
+ 
 .cl-auth-form-body input {
   border: 0;
   border-bottom: 1px solid #e5e5e5;
